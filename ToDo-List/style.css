@@ -5,7 +5,7 @@
 }
 
 body {
-  background-image: linear-gradient(120deg, #f6d365, #fda085);
+  background-image: linear-gradient(120deg, #4f77b4, #85c7fd);
   color: white;
   font-family: "Poppins", sans-serif;
   min-height: 100vh;
@@ -28,6 +28,8 @@ form button {
   font-size: 2rem;
   border: none;
   background: white;
+  border-radius: 0.5rem;
+  border: 2px solid rgb(131, 113, 113);
 }
 
 form button {
@@ -62,6 +64,7 @@ form button:hover {
   justify-content: space-between;
   align-items: center;
   transition: all 0.5s ease;
+  border-radius: 0.5rem;
 }
 .todo li {
   flex: 1;
@@ -69,16 +72,23 @@ form button:hover {
 
 .trsh-btn,
 .comp-btn {
-  background-color: #ff6f46;
+  background-color: #fd8c6c;
   color: white;
   border: none;
   padding: 1rem;
   cursor: pointer;
   font-size: 1rem;
+  border-radius: 0.5rem;
 }
 
 .comp-btn {
+  background: rgb(149, 223, 120);
+}
+.comp-btn:hover {
   background: green;
+}
+.trsh-btn:hover {
+  background: #ff5c2e;
 }
 
 .todo-item {
