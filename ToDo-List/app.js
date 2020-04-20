@@ -3,11 +3,15 @@ const todoButton = document.querySelector(".todo-button");
 const todoList = document.querySelector(".todo-list");
 const sortAsec = document.querySelector(".sort-az");
 const sortDsec = document.querySelector(".sort-za");
+const checkAll = document.querySelector(".checkAll");
+const deleteAll = document.querySelector(".deleteAll");
 
 todoButton.addEventListener("click", addTodo);
 todoList.addEventListener("click", deleteCheck);
 sortAsec.addEventListener("click", (event) => sortlist(event, false));
 sortDsec.addEventListener("click", (event) => sortlist(event, true));
+checkAll.addEventListener("click", checkAllFunc);
+deleteAll.addEventListener("click", deleteAllFunc);
 
 function addTodo(event) {
   event.preventDefault();
@@ -66,5 +70,28 @@ function sortlist(event, descFlag) {
 
   for (var i = 0, l = list.length; i < l; i++) {
     list[i].innerHTML = vals[i];
+  }
+}
+
+function checkAllFunc(e) {
+  e.preventDefault();
+  const buttonComp = todoList.getElementsByTagName("button");
+  for (var i = 0, l = buttonComp.length; i < l; i++) {
+    if (buttonComp[i].classList[0] === "comp-btn") {
+      buttonComp[i].parentElement.classList.toggle("completed");
+    }
+  }
+}
+function deleteAllFunc(e) {
+  e.preventDefault();
+  const buttonTrash = todoList.getElementsByTagName("button");
+  for (var i = 0, l = buttonTrash.length; i < l; i++) {
+    if (buttonTrash[i].classList[0] === "trsh-btn") {
+      const buttonParent = buttonTrash[i].parentElement;
+      buttonParent.classList.add("fall");
+      buttonParent.addEventListener("transitionend", function () {
+        buttonParent.remove();
+      });
+    }
   }
 }

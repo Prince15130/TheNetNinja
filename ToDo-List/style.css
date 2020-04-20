@@ -110,7 +110,9 @@ form button:hover {
 }
 
 .sort-az,
-.sort-za {
+.sort-za,
+.checkAll,
+.deleteAll {
   background-color: #fd8c6c;
   color: white;
   padding: 1rem;
