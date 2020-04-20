@@ -5,6 +5,7 @@ const sortAsec = document.querySelector(".sort-az");
 const sortDsec = document.querySelector(".sort-za");
 const checkAll = document.querySelector(".checkAll");
 const deleteAll = document.querySelector(".deleteAll");
+const filterTodo = document.querySelector(".filter-todo");
 
 todoButton.addEventListener("click", addTodo);
 todoList.addEventListener("click", deleteCheck);
@@ -12,6 +13,7 @@ sortAsec.addEventListener("click", (event) => sortlist(event, false));
 sortDsec.addEventListener("click", (event) => sortlist(event, true));
 checkAll.addEventListener("click", checkAllFunc);
 deleteAll.addEventListener("click", deleteAllFunc);
+filterTodo.addEventListener("click", filterData);
 
 function addTodo(event) {
   event.preventDefault();
@@ -94,4 +96,29 @@ function deleteAllFunc(e) {
       });
     }
   }
+}
+
+function filterData(e) {
+  const child = todoList.childNodes;
+  child.forEach(function (todo) {
+    switch (e.target.value) {
+      case "all":
+        todo.style.display = "flex";
+        break;
+      case "completed":
+        if (todo.classList.contains("completed")) {
+          todo.style.display = "flex";
+        } else {
+          todo.style.display = "none";
+        }
+        break;
+      case "uncompleted":
+        if (!todo.classList.contains("completed")) {
+          todo.style.display = "flex";
+        } else {
+          todo.style.display = "none";
+        }
+        break;
+    }
+  });
 }
