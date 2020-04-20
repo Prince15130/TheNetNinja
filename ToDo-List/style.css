@@ -74,7 +74,6 @@ form button:hover {
 .comp-btn {
   background-color: #fd8c6c;
   color: white;
-  border: none;
   padding: 1rem;
   cursor: pointer;
   font-size: 1rem;
@@ -108,4 +107,16 @@ form button:hover {
 .fall {
   transform: translateY(8rem) rotateZ(20deg);
   opacity: 0;
+}
+
+.sort-az,
+.sort-za {
+  background-color: #fd8c6c;
+  color: white;
+  padding: 1rem;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  border-radius: 0.5rem;
+  margin: 1rem;
 }

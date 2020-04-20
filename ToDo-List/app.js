@@ -1,9 +1,13 @@
 const todoInput = document.querySelector(".todo-input");
 const todoButton = document.querySelector(".todo-button");
 const todoList = document.querySelector(".todo-list");
+const sortAsec = document.querySelector(".sort-az");
+const sortDsec = document.querySelector(".sort-za");
 
 todoButton.addEventListener("click", addTodo);
 todoList.addEventListener("click", deleteCheck);
+sortAsec.addEventListener("click", (event) => sortlist(event, false));
+sortDsec.addEventListener("click", (event) => sortlist(event, true));
 
 function addTodo(event) {
   event.preventDefault();
@@ -45,5 +49,22 @@ function deleteCheck(e) {
   if (item.classList[0] === "comp-btn") {
     const todo = item.parentElement;
     todo.classList.toggle("completed");
+  }
+}
+
+function sortlist(event, descFlag) {
+  event.preventDefault();
+  const list = todoList.getElementsByTagName("li");
+  var vals = [];
+  for (var i = 0, l = list.length; i < l; i++) {
+    vals.push(list[i].innerHTML);
+  }
+  vals.sort();
+  if (descFlag) {
+    vals.reverse();
+  }
+
+  for (var i = 0, l = list.length; i < l; i++) {
+    list[i].innerHTML = vals[i];
   }
 }
